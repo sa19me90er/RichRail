@@ -3,7 +3,7 @@ package nl.hu.persistence.DAO;
 import java.util.List;
 
 public interface GenericDAO<T> {
-    T findById(int id);
+    T findById(String id);
     void update(T entity);
     void delete(T entity);
     List<T> getAll();

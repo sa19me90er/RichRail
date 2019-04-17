@@ -23,16 +23,16 @@ public class TrainService {
         }
 	
     
-    public Train getTrainById(int id) {
+    public Train getTrainById(String id) {
         TrainDAO trainDao = new TrainDaoJpaImpl(em);
         Train train = trainDao.findById(id);
         return train;
 
 	}
 
-    public boolean makeTrain(String name) {
+    public boolean makeTrain(String id) {
 		EntityManager em = EntityManagerProvider.getEntityManager();
-		Train train= new Train(name);
+		Train train= new Train(id);
 		TrainDAO trainDao = new TrainDaoJpaImpl(em);
 		em.getTransaction().begin();
         trainDao.insert(train);
@@ -42,7 +42,7 @@ public class TrainService {
 
 	}
     
-	public boolean deleteTrain(int id) {
+	public boolean deleteTrain(String id) {
 		EntityManager em = EntityManagerProvider.getEntityManager();
 		TrainDAO trainDao = new TrainDaoJpaImpl(em);
 		Train train = trainDao.findById(id);

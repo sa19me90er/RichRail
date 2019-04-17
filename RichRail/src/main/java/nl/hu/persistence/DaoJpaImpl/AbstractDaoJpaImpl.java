@@ -31,7 +31,7 @@ public abstract class AbstractDaoJpaImpl<T> implements GenericDAO<T> {
     }
 
     @Override
-    public T findById(int id) {
+    public T findById(String id) {
         T entity = (T) em.find(type, id);
         return entity;
     }

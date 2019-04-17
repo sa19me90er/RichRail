@@ -14,7 +14,7 @@ public class App
              EntityManager em = EntityManagerProvider.getEntityManager();
              
              TrainService trainService = new TrainService();
-//             trainService.deleteProduct(7);
+             trainService.makeTrain("tr2");
              System.out.println(trainService.getAllTrains());
              
 

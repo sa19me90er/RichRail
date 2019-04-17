@@ -1,5 +1,11 @@
 package nl.hu.persistence.DAO;
 
-public interface WagonDAO {
+import java.util.List;
+
+import nl.hu.domain.Wagon;
+
+public interface WagonDAO extends GenericDAO<Wagon> {
+
+	
 
 }

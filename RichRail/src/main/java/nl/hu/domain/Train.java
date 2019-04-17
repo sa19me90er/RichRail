@@ -25,45 +25,33 @@ public class Train {
 	
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	
     @Column(name="id")
-	private int trainID;
-	
-    @Column(name="name")
-	private String name;
+	private String trainID;
 
 
     @OneToMany(mappedBy = "train")
     private List<Wagon> wagons;
    
-    public Train( String name) {
-    	this.name= name;
+    public Train( String trainID) {
+    	this.trainID = trainID;
     }
     
     public Train() {
     }
     	
-    	
-    public int getTrainID() {
+    			
+
+	public String getTrainID() {
 		return trainID;
 	}
 
 
-	public void setTrainID(int trainID) {
+	public void setTrainID(String trainID) {
 		this.trainID = trainID;
 	}
 
-
-	public String getName() {
-		return name;
-	}
-
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
+/*
 	public List<Wagon> getWagons() {
 		return wagons;
 	}
@@ -72,9 +60,9 @@ public class Train {
 	public void setWagons(List<Wagon> wagons) {
 		this.wagons = wagons;
 	}
- 
+ */
 	@Override
 	public String toString() {
-		return " "+ trainID +" " + name + " \n";
+		return " "+ trainID +" "  + " \n";
 	}
 }

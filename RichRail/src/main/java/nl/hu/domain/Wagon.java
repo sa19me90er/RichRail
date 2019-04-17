@@ -15,22 +15,33 @@ import lombok.Data;
 @Data
 
 @Entity
-
-@Table(name="train")
+@Table(name="wagon")
+	
 public class Wagon {
+	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
-	private int id;
+	private String wagonID;
 	
-    @Column(name="name")
-	private int seate;
-    
+	@Column(name="seats")
+	private int seats;
+ 
     @Column(name="type")
 	private String type;
     
     @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn(name = "train_id")
     private Train train;
+
+	public Wagon(int seats, String type) {
+		this.seats= seats;
+		this.type= type;}
+
+	public Wagon() {}
+
+public String getWagonID(){
+	return wagonID;
+}
 }
