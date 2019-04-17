@@ -1,4 +1,4 @@
-package nl.hu.DaoJpalmpl;
+package nl.hu.persistence.DaoJpaImpl;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -25,4 +25,4 @@ public class HibernateUtil {
         return entityManagerFactory;
     }
 
-}
+}	

@@ -1,16 +1,14 @@
-package nl.hu.DaoJpalmpl;
-
-import nl.hu.DAO.GenericDao;
+package nl.hu.persistence.DaoJpaImpl;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
 
+import nl.hu.persistence.DAO.GenericDAO;
 
-public abstract class AbstractDaoJpaImpl<T> implements GenericDao<T> {
+public abstract class AbstractDaoJpaImpl<T> implements GenericDAO<T> {
     protected EntityManager em;
     protected Class<T> type;
 

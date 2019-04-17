@@ -1,14 +1,11 @@
-package nl.hu.RichRail;
+package nl.hu.presentation;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import nl.hu.DAO.EntityManagerProvider;
-import nl.hu.domain.Train;
 import nl.hu.logic.TrainService;
+import nl.hu.persistence.DAO.EntityManagerProvider;
 
 public class App 
 	{

@@ -1,9 +1,8 @@
-package nl.hu.DAO;
-
+package nl.hu.persistence.DAO;
 
 import java.util.List;
 
-public interface GenericDao<T> {
+public interface GenericDAO<T> {
     T findById(int id);
     void update(T entity);
     void delete(T entity);

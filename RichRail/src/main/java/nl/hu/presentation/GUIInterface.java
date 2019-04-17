@@ -1,4 +1,4 @@
-package nl.hu.RichRail;
+package nl.hu.presentation;
 
 import java.awt.EventQueue;
 
@@ -25,7 +25,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import java.awt.Font;
 
-public class RichRailFrame {
+public class GUIInterface {
 
 	private JFrame frame;
 	private JTextField txtTrainName;
@@ -46,7 +46,7 @@ public class RichRailFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					RichRailFrame window = new RichRailFrame();
+					GUIInterface window = new GUIInterface();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -58,7 +58,7 @@ public class RichRailFrame {
 	/**
 	 * Create the application.
 	 */
-	public RichRailFrame() {
+	public GUIInterface() {
 		initialize();
 	}
 

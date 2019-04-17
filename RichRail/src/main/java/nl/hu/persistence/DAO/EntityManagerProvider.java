@@ -1,9 +1,9 @@
-package nl.hu.DAO;
+package nl.hu.persistence.DAO;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
-import nl.hu.DaoJpalmpl.HibernateUtil;
+import nl.hu.persistence.DaoJpaImpl.HibernateUtil;
 
 public class EntityManagerProvider {
 
