@@ -20,7 +20,6 @@ public class WagonService {
 		List<Wagon> allWagons = wagonDAO.getAll();
 		return allWagons;
 	}
-<<<<<<< HEAD
 
 	public Wagon getWagonById(String id) {
 		WagonDAO wagonDao = new WagonDaoJpaImpl(em);
@@ -29,17 +28,10 @@ public class WagonService {
 		return wagon;
 	}
 
-	public boolean makeWagon(String wagonID, int seats, String type) {
-=======
-	
-	public boolean makeWagon (String id, int seats, String type){
->>>>>>> branch 'master' of https://github.com/sa19me90er/RichRail.git
+	public boolean makeWagon(String id, int seats, String type) {
+
 		EntityManager em = EntityManagerProvider.getEntityManager();
-<<<<<<< HEAD
-		Wagon wagon = new Wagon(wagonID, seats, type);
-=======
-		Wagon wagon = new Wagon(id,seats,type);
->>>>>>> branch 'master' of https://github.com/sa19me90er/RichRail.git
+		Wagon wagon = new Wagon(id, seats, type);
 		WagonDAO wagonDAO = new WagonDaoJpaImpl(em);
 		em.getTransaction().begin();
 		wagonDAO.insert(wagon);
