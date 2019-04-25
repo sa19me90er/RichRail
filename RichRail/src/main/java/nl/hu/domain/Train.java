@@ -25,12 +25,12 @@ public class Train {
 	
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)	
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)	
     @Column(name="id")
 	private String trainID;
 
 
-    @OneToMany(mappedBy = "train")
+	@OneToMany(mappedBy = "train")
     private List<Wagon> wagons;
    
     public Train( String trainID) {
@@ -51,7 +51,7 @@ public class Train {
 		this.trainID = trainID;
 	}
 
-/*
+
 	public List<Wagon> getWagons() {
 		return wagons;
 	}
@@ -60,7 +60,7 @@ public class Train {
 	public void setWagons(List<Wagon> wagons) {
 		this.wagons = wagons;
 	}
- */
+ 
 	@Override
 	public String toString() {
 		return " "+ trainID +" "  + " \n";
