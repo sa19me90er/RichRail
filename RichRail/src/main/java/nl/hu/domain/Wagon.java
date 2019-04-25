@@ -26,7 +26,6 @@ public class Wagon {
 	}
 
 	@Id
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
 	private String wagonID;
 	

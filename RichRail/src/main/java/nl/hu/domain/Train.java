@@ -25,7 +25,6 @@ public class Train {
 	
 
 	@Id
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)	
     @Column(name="id")
 	private String trainID;
 

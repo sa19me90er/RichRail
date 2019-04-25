@@ -18,10 +18,6 @@ public class App {
 		
 		//System.out.println(trainService.getAllTrains());
 		
-		WagonService wagonService = new WagonService();
-		wagonService.updateWagon("wg4", 25, "Shant", "tr1");
-
-		System.out.println(wagonService.getAllWagons());
-
+	
 	}
 }
