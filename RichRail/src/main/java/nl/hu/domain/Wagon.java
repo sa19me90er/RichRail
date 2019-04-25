@@ -21,7 +21,6 @@ public class Wagon {
 	
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
 	private String wagonID;
 	
@@ -35,7 +34,8 @@ public class Wagon {
     @JoinColumn(name = "train_id")
     private Train train;
 
-	public Wagon(int seats, String type) {
+	public Wagon(String wagonID, int seats, String type) {
+		this.wagonID= wagonID;
 		this.seats= seats;
 		this.type= type;}
 

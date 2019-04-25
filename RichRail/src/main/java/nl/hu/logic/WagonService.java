@@ -20,9 +20,9 @@ public class WagonService {
 		return allWagons;
 	}
 	
-	public boolean makeWagon (int seats, String type){
+	public boolean makeWagon (String id, int seats, String type){
 		EntityManager em = EntityManagerProvider.getEntityManager();
-		Wagon wagon = new Wagon(seats,type);
+		Wagon wagon = new Wagon(id,seats,type);
 		WagonDAO wagonDAO = new WagonDaoJpaImpl(em);
 		em.getTransaction().begin();
 		wagonDAO.insert(wagon);
