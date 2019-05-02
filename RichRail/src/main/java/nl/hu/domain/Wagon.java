@@ -44,6 +44,10 @@ public class Wagon {
 		this.seats= seats;
 		this.type= type;}
 
+	public Wagon(String wagonID, int seats) {
+		this.wagonID= wagonID;
+		this.seats= seats;}
+		
 	public int getSeats() {
 		return seats;
 	}

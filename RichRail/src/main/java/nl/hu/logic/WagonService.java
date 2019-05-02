@@ -8,7 +8,9 @@ import javax.persistence.EntityManagerFactory;
 import nl.hu.domain.Train;
 import nl.hu.domain.Wagon;
 import nl.hu.persistence.DAO.EntityManagerProvider;
+import nl.hu.persistence.DAO.TrainDAO;
 import nl.hu.persistence.DAO.WagonDAO;
+import nl.hu.persistence.DaoJpaImpl.TrainDaoJpaImpl;
 import nl.hu.persistence.DaoJpaImpl.WagonDaoJpaImpl;
 
 public class WagonService {
@@ -27,7 +29,20 @@ public class WagonService {
 
 		return wagon;
 	}
+	
+	public boolean makeWagon(String id) {
+		EntityManager em = EntityManagerProvider.getEntityManager();
+		int seats = 25;
+		String type = "wagon" ;
+		Wagon wagon= new Wagon(id, seats, type);
+		WagonDAO wagonDAO = new WagonDaoJpaImpl(em);
+		em.getTransaction().begin();
+        wagonDAO.insert(wagon);
+		em.getTransaction().commit();
+		em.close();
+		return true;
 
+	}
 	
 
 	public boolean deleteWagon(String id) {
@@ -56,6 +71,38 @@ public class WagonService {
 		em.getTransaction().commit();
 		em.close();
 
+		return true;
+	}
+	
+	public boolean OntkoppelWagon(String id){
+		EntityManager em = EntityManagerProvider.getEntityManager();
+		WagonDAO wagonDAO = new WagonDaoJpaImpl(em);
+		Wagon wagon = wagonDAO.findById(id);
+		wagon.setSeats(wagon.getSeats());
+		wagon.setType(wagon.getType());
+		TrainService trainService = new TrainService();
+		wagon.setTrain(null);
+		em.getTransaction().begin();
+		wagonDAO.update(wagon);
+		em.getTransaction().commit();
+		em.close();
+
+		return true;
+	}
+	
+	public boolean AddToTrain(String TrainId, String WagonId){
+		EntityManager em = EntityManagerProvider.getEntityManager();
+		WagonDAO wagonDAO = new WagonDaoJpaImpl(em);
+		Wagon wagon = wagonDAO.findById(WagonId);
+		wagon.setSeats(wagon.getSeats());
+		wagon.setType(wagon.getType());
+		TrainService trainService = new TrainService();
+		TrainService tService =  new TrainService();
+		wagon.setTrain(tService.getTrainById(TrainId));
+		em.getTransaction().begin();
+		wagonDAO.update(wagon);
+		em.getTransaction().commit();
+		em.close();
 		return true;
 	}
 }

@@ -11,6 +11,7 @@ public class TrainFacade {
 		public void makeTrain(String id){
 			trainService.makeTrain(id);
 			}
+		
 		public boolean deleteTrain(String id){
 			return trainService.deleteTrain(id);
 		}
