@@ -2,6 +2,7 @@ package nl.hu.logic;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -58,23 +59,23 @@ public class TrainService {
 	}
 	
 	public List<Wagon> getAllTrainWagons(String trainId){
-		WagonDAO wagonDAO = new WagonDaoJpaImpl(em);
-		List<Wagon> allWagons = wagonDAO.getAll();
-	    List<Wagon> allTrainWagons = new ArrayList <Wagon>();
+		WagonService wagonService = new WagonService();
+	    List<Wagon> allWagons = wagonService.getAllWagons();
+	    List<Wagon> allTrainWagons = new ArrayList<Wagon>();
 	      for (Wagon w : allWagons){
-	    	  Train t = w.getTrain();
-	    	  if (t.getTrainID() == trainId){
+	    	   if (Objects.equals(w.getTrain(),trainId)){
 	    		  allTrainWagons.add(w);
-	    	  }  
+	    	  } 
 	      }
 	      return allTrainWagons;
 	}
 	
-	public int getAllTrainSeats(String id){
-		List <Wagon>trainWagons = getAllTrainWagons(id);
+	public int getAllTrainSeats(String trainId){
+		Train train = getTrainById(trainId);
+		List <Wagon>trainWagons = getAllTrainWagons(trainId);
 		int seats = 0;
 		for (Wagon wagon : trainWagons){
-			seats +=wagon.getSeats();
+			seats += wagon.getSeats();
 		}
 		return seats;
 	}

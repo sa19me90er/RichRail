@@ -8,14 +8,12 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import nl.hu.interpreter.Logger;
-import nl.hu.interpreter.NewTrainCommand;
-import nl.hu.interpreter.RailCompany;
+import nl.hu.command.Logger;
+import nl.hu.command.RailCompany;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JInternalFrame;
 import javax.swing.JTextArea;
@@ -62,9 +60,16 @@ public class CommandInterface {
 		frame.getContentPane().setLayout(null);
 	
 		JLabel logerLabel = new JLabel("");
-		logerLabel.setBackground(Color.WHITE);
-		logerLabel.setBounds(10, 39, 260, 173);
+		logerLabel.setForeground(Color.WHITE);
+		logerLabel.setBackground(Color.BLACK);
+		logerLabel.setBounds(10, 39, 593, 289);
 		frame.getContentPane().add(logerLabel);
+		
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(53, 254, 46, 14);
+		frame.getContentPane().add(lblNewLabel);
+		
 		
 	JButton btnExecute = new JButton("execute");
 	btnExecute.addActionListener(new ActionListener() {
@@ -73,12 +78,19 @@ public class CommandInterface {
 		public void actionPerformed(ActionEvent e) {
 			RailCompany railComapany = new RailCompany();
 			railComapany.parse(txtCommand_1.getText());
-			txtCommand_1.removeAll();
-			Logger logger = railComapany.getLogger();
-			ArrayList<String> logStringlist = logger.getLog();
-			for (String logString: logStringlist){
-				txtCommand_1.setText(logString);
+			txtCommand_1.setText("");
+
+			Logger logger = RailCompany.getInstance().getLogger();
+			ArrayList<String> logs = logger.getLog();
+			logerLabel.setText("<html>");
+			
+			for (String log: logs){
+				System.out.println(log);
+				lblNewLabel.setText(log);
+				logerLabel.add(lblNewLabel);
+				logerLabel.setText( logerLabel.getText() +  "<p>" + log + "</p>" );
 			}
+			logerLabel.setText(logerLabel.getText() +"</html>");			
 			
 		}
 	});
@@ -86,12 +98,14 @@ public class CommandInterface {
 	frame.getContentPane().add(btnExecute);
 	
 	txtCommand_1 = new JTextField();
-	txtCommand_1.setText("Command");
 	txtCommand_1.setBounds(70, 367, 221, 22);
 	frame.getContentPane().add(txtCommand_1);
 	txtCommand_1.setColumns(10);
 	
-
+	JPanel panel = new JPanel();
+	panel.setBackground(Color.BLACK);
+	panel.setBounds(0, 0, 626, 343);
+	frame.getContentPane().add(panel);
 
 	}
 		}

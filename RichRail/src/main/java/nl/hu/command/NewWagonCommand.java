@@ -1,4 +1,4 @@
-package nl.hu.interpreter;
+package nl.hu.command;
 
 import nl.hu.domain.Wagon;
 import nl.hu.logic.WagonService;
@@ -15,6 +15,7 @@ public class NewWagonCommand extends VehicleFinder implements ICommand {
     @Override
     public void execute() {
     	WagonService wagonService = new WagonService();
+    	
         if (number != null) {        	
         	wagonService.makeWagon(id);
             logger.add("new wagon created: " + id);

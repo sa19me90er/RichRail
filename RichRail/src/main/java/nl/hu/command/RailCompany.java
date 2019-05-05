@@ -1,4 +1,4 @@
-package nl.hu.interpreter;
+package nl.hu.command;
 
 import nl.hu.interpreter.antlr4.*;
 import nl.hu.domain.Train;
@@ -7,7 +7,6 @@ import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 
 import java.util.ArrayList;
-import java.util.Observable;
 
 
 public class RailCompany {
@@ -33,15 +32,7 @@ public class RailCompany {
         return railCompany;
     }
 
-    private void setTestData() {
-        new NewTrainCommand("tr1").execute();
-        new NewWagonCommand("wg1", "20").execute();
-        new AddCommand("wg1", "tr1").execute();
-        new GetSeatsCommand("wagon", "wg1").execute();
-        new RemoveCommand("wg1", "tr1").execute();
-        new DeleteTrainCommand("tr1").execute();
-        new DeleteWagonCommand("wg1").execute();
-    }
+  
 
 
     public ArrayList<String> getLog() {

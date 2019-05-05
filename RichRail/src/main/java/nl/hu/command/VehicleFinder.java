@@ -1,4 +1,4 @@
-package nl.hu.interpreter;
+package nl.hu.command;
 
 import nl.hu.domain.Train;
 import nl.hu.domain.Wagon;
@@ -24,15 +24,15 @@ public class VehicleFinder {
     /**
      * Returns a wagon
      */
-    Wagon findWagon(String id) {
-    	WagonService wagonService = new WagonService();
-
-        for (Wagon w : wagonService.getAllWagons()) {
-        	Train wagonTrain = w.getTrain();
-            if (wagonTrain.getTrainID().equals(id)) {
-                return w;
-            }
-        }
-        return null;
-    }
+//    Wagon findWagon(String id) {
+//    	WagonService wagonService = new WagonService();
+//
+//        for (Wagon w : wagonService.getAllWagons()) {
+//        	Train wagonTrain = w.getTrain();
+//            if (wagonTrain.getTrainID().equals(id)) {
+//                return w;
+//            }
+//        }
+//        return null;
+//    }
 }

@@ -1,6 +1,5 @@
 // This is an ANTLR file. It defines a domain-specific language (DSL) for creating trains and wagons, connecting them, and removing or deleting them.
 // Make sure you have installed the "ANTLR v4 grammar plugin" for Eclipse!
-// This file needs to be compiled by right-clicking this file > Generate ANTLR Recogniser. MAKE SURE YOU HAVE CONFIGURED ANTLR FIRST (see right-click on the file again)! OUTPUT DIRECTORY (..\RichRail\src\main\java), PACKAGE (com.harambeshabitat.app.logic.parser and LANGUAGE should be set, at least!
 grammar RichRail;
 
 options {

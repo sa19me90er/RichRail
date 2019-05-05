@@ -1,4 +1,4 @@
-package nl.hu.interpreter;
+package nl.hu.command;
 
 /**
  * Created by Jason on 08/01/2017.

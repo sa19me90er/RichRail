@@ -35,9 +35,9 @@ public class Wagon {
     @Column(name="type")
 	private String type;
     
-    @ManyToOne (fetch = FetchType.EAGER)
-    @JoinColumn(name = "train_id")
-    private Train train;
+ //   @ManyToOne (fetch = FetchType.EAGER)
+    @Column(name = "train_id")
+    private String train;
 
 	public Wagon(String wagonID, int seats, String type) {
 		this.wagonID= wagonID;
@@ -47,6 +47,10 @@ public class Wagon {
 	public Wagon(String wagonID, int seats) {
 		this.wagonID= wagonID;
 		this.seats= seats;}
+	
+	public Wagon(String wagonID){
+		this.wagonID= wagonID;
+	}
 		
 	public int getSeats() {
 		return seats;
@@ -64,11 +68,11 @@ public class Wagon {
 		this.type = type;
 	}
 
-	public Train getTrain() {
+	public String getTrain() {
 		return train;
 	}
 
-	public void setTrain(Train train) {
+	public void setTrain(String train) {
 		this.train = train;
 	}
 

@@ -1,4 +1,4 @@
-package nl.hu.interpreter;
+package nl.hu.command;
 
 import nl.hu.domain.Train;
 import nl.hu.domain.Wagon;
@@ -35,6 +35,8 @@ public class GetSeatsCommand extends VehicleFinder implements ICommand {
                logger.add("Can't find wagon " + id);
            }
        }
+       else{
        logger.add("No train or wagon found.");
    }
+   }     
 }

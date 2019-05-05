@@ -1,15 +1,7 @@
 // Generated from RichRail.g4 by ANTLR 4.4
 package nl.hu.interpreter.antlr4;
 
-    import nl.hu.interpreter.NewTrainCommand;
-    import nl.hu.interpreter.NewWagonCommand;
-    import nl.hu.interpreter.AddCommand;
-    import nl.hu.interpreter.GetSeatsCommand;
-    import nl.hu.interpreter.DeleteTrainCommand;
-    import nl.hu.interpreter.DeleteWagonCommand;
-    import nl.hu.interpreter.RemoveCommand;
-
-import org.antlr.v4.runtime.Lexer;
+    import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.TokenStream;
@@ -17,6 +9,14 @@ import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.misc.*;
+
+import nl.hu.command.AddCommand;
+import nl.hu.command.DeleteTrainCommand;
+import nl.hu.command.DeleteWagonCommand;
+import nl.hu.command.GetSeatsCommand;
+import nl.hu.command.NewTrainCommand;
+import nl.hu.command.NewWagonCommand;
+import nl.hu.command.RemoveCommand;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class RichRailLexer extends Lexer {

@@ -1,4 +1,4 @@
-package nl.hu.interpreter;
+package nl.hu.command;
 
 import nl.hu.domain.Train;
 import nl.hu.domain.Wagon;

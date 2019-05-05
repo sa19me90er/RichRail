@@ -63,9 +63,15 @@ public class WagonService {
 		Wagon wagon = wagonDAO.findById(id);
 		wagon.setSeats(seats);
 		wagon.setType(type);
+		
+		if (trainID != null){
 		TrainService trainService = new TrainService();
 		Train train = trainService.getTrainById(trainID);
-		wagon.setTrain(train);
+		wagon.setTrain(train.getTrainID());
+		}
+		else {
+			wagon.setTrain(trainID);
+		}
 		em.getTransaction().begin();
 		wagonDAO.update(wagon);
 		em.getTransaction().commit();
@@ -90,15 +96,17 @@ public class WagonService {
 		return true;
 	}
 	
-	public boolean AddToTrain(String TrainId, String WagonId){
+	public boolean AddToTrain(String WagonId, String TrainId){
 		EntityManager em = EntityManagerProvider.getEntityManager();
 		WagonDAO wagonDAO = new WagonDaoJpaImpl(em);
 		Wagon wagon = wagonDAO.findById(WagonId);
 		wagon.setSeats(wagon.getSeats());
 		wagon.setType(wagon.getType());
+		
 		TrainService trainService = new TrainService();
-		TrainService tService =  new TrainService();
-		wagon.setTrain(tService.getTrainById(TrainId));
+		Train train = trainService.getTrainById(TrainId);
+		wagon.setTrain(train.getTrainID());
+		
 		em.getTransaction().begin();
 		wagonDAO.update(wagon);
 		em.getTransaction().commit();
