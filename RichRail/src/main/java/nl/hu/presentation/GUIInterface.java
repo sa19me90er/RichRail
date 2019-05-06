@@ -8,6 +8,7 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
 
 import nl.hu.domain.Train;
+import nl.hu.domain.WagonFacade;
 import nl.hu.logic.TrainService;
 
 import com.jgoodies.forms.layout.FormSpecs;
@@ -30,13 +31,15 @@ public class GUIInterface {
 	private JFrame frame;
 	private JTextField txtTrainName;
 	private JTextField txtWagonType;
-	private JTextField txtNumberOfSeats;
+	private JTextField txtWagonId;
 	private JButton btnAddNewComponent;
 	private JComboBox comboBox;
 	private JButton btnMakeComponent;
 	private JButton btnDeleteComponent;
 	private JButton btnHideTrain;
-	private TrainService trainService=new TrainService(); 
+	private TrainService trainService=new TrainService();
+	private WagonFacade wagonFacade = new WagonFacade();
+
 
 
 	/**
@@ -104,15 +107,15 @@ public class GUIInterface {
 		
 		txtWagonType = new JTextField();
 		txtWagonType.setText("Wagon type");
-		txtWagonType.setBounds(366, 143, 86, 20);
+		txtWagonType.setBounds(366, 170, 86, 20);
 		frame.getContentPane().add(txtWagonType);
 		txtWagonType.setColumns(10);
 		
-		txtNumberOfSeats = new JTextField();
-		txtNumberOfSeats.setText("Number of seats");
-		txtNumberOfSeats.setBounds(366, 174, 86, 20);
-		frame.getContentPane().add(txtNumberOfSeats);
-		txtNumberOfSeats.setColumns(10);
+		txtWagonId = new JTextField();
+		txtWagonId.setText("ID");
+		txtWagonId.setBounds(366, 145, 86, 20);
+		frame.getContentPane().add(txtWagonId);
+		txtWagonId.setColumns(10);
 		
 		btnAddNewComponent = new JButton("Add Component to trains");
 		btnAddNewComponent.addActionListener(new ActionListener() {
@@ -151,6 +154,9 @@ public class GUIInterface {
 		btnMakeComponent = new JButton("Make component");
 		btnMakeComponent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				wagonFacade.makeWagon(txtWagonId.getText(),txtWagonType.getText());
+				
+				
 			}
 		});
 		btnMakeComponent.setBounds(472, 153, 154, 23);

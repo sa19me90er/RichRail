@@ -10,8 +10,8 @@ public class WagonFacade {
 
 	private WagonService wagonService;
 	
-	public void makeWagon(String id, int seats, String type){
-		wagonService.makeWagon(id,seats,type);
+	public boolean makeWagon(String id,String type){
+		return true;
 		}
 	
 	public boolean deleteWagon (String id){

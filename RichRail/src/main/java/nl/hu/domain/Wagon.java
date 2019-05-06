@@ -39,9 +39,8 @@ public class Wagon {
     @JoinColumn(name = "train_id")
     private Train train;
 
-	public Wagon(String wagonID, int seats, String type) {
+	public Wagon(String wagonID, String type) {
 		this.wagonID= wagonID;
-		this.seats= seats;
 		this.type= type;}
 
 	public int getSeats() {
