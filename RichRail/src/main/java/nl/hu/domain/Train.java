@@ -7,8 +7,6 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -29,9 +27,9 @@ public class Train {
 	private String trainID;
 
 
-	@OneToMany(mappedBy = "train")
-    private List<Wagon> wagons;
-   
+//	@OneToMany(mappedBy = "train")
+//    private List<Wagon> wagons;
+//   
     public Train( String trainID) {
     	this.trainID = trainID;
     }
@@ -51,14 +49,14 @@ public class Train {
 	}
 
 
-	public List<Wagon> getWagons() {
-		return wagons;
-	}
-
-
-	public void setWagons(List<Wagon> wagons) {
-		this.wagons = wagons;
-	}
+//	public List<Wagon> getWagons() {
+//		return wagons;
+//	}
+//
+//
+//	public void setWagons(List<Wagon> wagons) {
+//		this.wagons = wagons;
+//	}
  
 	@Override
 	public String toString() {
